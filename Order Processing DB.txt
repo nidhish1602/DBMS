@@ -1,0 +1,47 @@
+create table customer1(
+cno number(10),
+cname varchar2(20),
+city varchar2(20),
+primary key (cno)
+);
+
+create table odr(
+odrNo number(10),
+odate varchar2(10),
+cno number(10),
+oAmt number(5),
+primary key (odrNo),
+foreign key (cno) references customer1(cno)  
+);
+
+create table item(
+itemNo number(3),
+price number(3),
+primary key (itemNo)
+);
+
+create table odrItem(
+odrNo number(10),
+itemNo number(3),
+qty number(4),
+primary key (odrNo, itemNo),
+foreign key (odrNo) references odr(odrNo),
+foreign key (itemNo) references item(itemNo)
+);
+
+create table warehouse(
+wareNo number(3),
+city varchar2(20),
+primary key (wareNo)
+);
+
+create table shipment(
+odrNo number(10),
+wareNo number(3),
+sdate varchar2(10),
+primary key (odrNo, wareNo),
+foreign key (odrNo) references odr(odrNo),
+foreign key (wareNo) references warehouse(wareNo)
+);
+
+
