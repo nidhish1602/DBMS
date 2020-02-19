@@ -44,15 +44,42 @@ foreign key (loanNo) references loan(loanNo),
 foreign key (cname) references customer(cname)
 );
 
-insert into branch values('A5', 'C4', 12345.69);
+insert into branch values('SBI PD NAGAR', 'BANGALORE', 200000);
+insert into branch values('SBI RAJAJI NAGAR', 'BANGALORE', 500000);
+insert into branch values('SBI JAYANAGAR', 'BANGALORE', 660000);
+insert into branch values('SBI VIJAY NAGAR', 'BANGALORE', 870000);
+insert into branch values('SBI HOSAKEREHALLI', 'BANGALORE', 550000);
 
-insert into accounts values('A5', 7654321, 2198.1);
-insert into accounts values('A3', 7654322, 34555.1);
-insert into accounts values('A1', 7654323, 123456.1);
-insert into accounts values('A2', 7654324, 1234.1);
-insert into accounts values('A4', 7654325, 54678.1);
-commit;
+insert into accounts values('SBI HOSAKEREHALLI', 1234602, 5000);
+insert into accounts values('SBI VIJAY NAGAR', 1234603, 5000);
+insert into accounts values('SBI JAYANAGAR', 1234604, 5000);
+insert into accounts values('SBI RAJAJI NAGAR', 1234605, 10000);
+insert into accounts values('SBI VIJAY NAGAR', 1234503, 40000);
+insert into accounts values('SBI PD NAGAR', 1234504, 4000);
+
+insert into customer values('KEZAR', 'M G ROAD', 'BANGALORE');
+insert into customer values('LAL KRISHNA', 'ST MKS ROAD', 'BANGALORE');
+insert into customer values('RAHUL', 'AUGSTEN ROAD', 'BANGALORE');
+insert into customer values('LALLU', 'V S ROAD', 'BANGALORE');
+insert into customer values('FAIZAL', 'RESEDENCY ROAD', 'BANGALORE');
+insert into customer values('RAJEEV', 'DICKNSN ROAD', 'BANGALORE');
+
+insert into loan values(10011, 10000, 'SBI JAYANAGAR');
+insert into loan values(10012, 5000, 'SBI VIJAY NAGAR');
+insert into loan values(10013, 20000, 'SBI HOSAKEREHALLI');
+insert into loan values(10014, 15000, 'SBI PD NAGAR');
+insert into loan values(10015, 25000, 'SBI RAJAJI NAGAR');
 
 
+insert into borrower values('KEZAR', 10011);
+insert into borrower values('LAL KRISHNA', 10012);
+insert into borrower values('RAHUL', 10013);
+insert into borrower values('LALLU', 10014);
+insert into borrower values('FAIZAL', 10015);
 
-select * from branch; 
+select * from branch;
+select * from loan;
+select * from borrower;
+select * from customer;
+select * from accounts;
+
