@@ -1,0 +1,73 @@
+create table student1(
+RegistrationNo varchar2(10),
+sname VARCHAR(20),
+major varchar2(5),
+bdate varchar2(20),
+primary key (RegistrationNo)
+);
+
+create table course(
+course number(3),
+cname varchar2(5),
+dept varchar2(7),
+primary key (course)
+);
+
+create table text(
+isbn number(5),
+title varchar2(20),
+publisher varchar2(20),
+author varchar2(20),
+primary key (isbn)
+);
+
+create table adoption(
+course number(3),
+sem number(1),
+isbn number(5),
+primary key(course, isbn),
+foreign key (course) references course(course),
+foreign key (isbn) references text (isbn)
+);
+
+create table enroll(
+RegistrationNo varchar2(10),
+course number(3),
+sem number(3),
+marks number(3),
+primary key(course, RegistrationNo),
+foreign key (course) references course(course),
+foreign key (RegistrationNo) references student1 (RegistrationNo)
+);
+
+insert into student1 values('1DB01IS01', 'KIRAN', 'ISE',  '02-JAN-84');
+insert into student1 values('1DB01CS02', 'DIVYA', 'CSE',   '12-OCT-85');
+insert into student1 values('1DB01ME03', 'BABU', 'MECH',  '23-SEP-82');
+insert into student1 values('1DB01EC01', 'JOHN', 'EC',  '21-FEB-84');
+insert into student1 values('1DB01CS05', 'ASHA', 'CSE',  '07-OCT-79');
+
+insert into course values(11, 'DCS', 'CSE');
+insert into course values(22, 'ADA', 'CSE');
+insert into course values(33, 'CN', 'EC');
+insert into course values(44, 'TD', 'MECH');
+insert into course values(55, 'MUP', 'EC');
+SELECT * FROM ADOPTION ;
+insert into text values(7722, 'VB', 'PHI', 'HOLDZNER');
+insert into text values(1144, 'DS WITH C', 'SAPNA', 'NANDAGOPAL');
+insert into text values(4400, 'C PROG', 'PHI', 'BALAGURU');
+insert into text values(5566, 'CN', 'PHI', 'TENEBAUM');
+insert into text values(3388, 'MP', 'TATA', 'BREY');
+
+insert into ADOPTION values(11, 3, 7722);
+insert into ADOPTION values(22, 4, 7722);
+insert into ADOPTION values(11, 5, 4400);
+insert into ADOPTION values(11, 8, 5566);
+insert into ADOPTION values(55, 4, 3388);
+insert into ADOPTION values(44, 4, 5566);
+insert into ADOPTION values(44, 7, 3388);
+
+insert into enroll values ('1DB01IS01', 22, 5, 76);
+insert into enroll values ('1DB01IS01', 11, 3, 90);
+insert into enroll values ('1DB01CS02', 33, 6, 55);
+insert into enroll values ('1DB01ME03', 22, 5, 75);
+insert into enroll values ('1DB01CS05', 44, 5, 75);
