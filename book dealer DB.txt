@@ -1,0 +1,54 @@
+create table author(
+    authorId int, 
+    name varchar2(20),
+    city varchar2(20),
+    country varchar2(20),
+    primary key (authorId)
+);
+
+create table publisher(
+    publisherId int, 
+    name varchar2(20),
+    city varchar2(20), 
+    country varchar2(20),
+    primary key (publisherId)
+);
+
+create table catalog(
+    bookId int, 
+    title varchar2(20),
+    authorId int,
+    publisherId int,
+    categoryId int, 
+    year varchar2(20),
+    price number(10),
+    primary key (bookId)
+);
+
+create table category(
+    categoryId int,
+    description varchar2(20),
+    primary key (categoryId)
+);
+
+create table Order_details(
+    orderNo int,
+    bookId int, 
+    quantity int, 
+    primary key(orderNo, bookId),
+    foreign key (bookId) references catalog(bookId)
+);
+
+insert into author values(&authorId, '&name', '&city', '&country');
+
+insert into publisher values (&publisherId, '&name', '&city', '&country');
+
+insert into category values(&categoryId, '&description');
+
+insert into catalog values(&bookId, '&title', &authorId, &publisherId, &categoryId, &year, &price);
+
+insert into Order_details values(&oderNo, &bookId, &quantity);
+
+SELECT * FROM Order_details;
+
+update catalog set price=326 where bookId=15; 
