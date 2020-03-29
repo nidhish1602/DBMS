@@ -1,0 +1,29 @@
+create TABLE student(
+    snum int,
+    sname VARCHAR(30),
+    major VARCHAR(10),
+    level VARCHAR(10),
+    age INT,
+    PRIMARY key (snum)
+);
+
+create TABLE class(
+    name VARCHAR(10),
+    meet TIME,
+    room VARCHAR(5),
+    fid INT,
+    FOREIGN key (fid) REFERENCES faculty(fid)
+);
+
+create TABLE enrolled(
+    snum int,
+    cname VARCHAR(20),
+    FOREIGN key (snum) REFERENCES student(snum)
+);
+
+create TABLE faculty(
+    fid int,
+    fname VARCHAR(30),
+    deptid INT,
+    PRIMARY key (fid)
+)
