@@ -1,0 +1,42 @@
+create TABLE suppliers(
+  	sid int,
+    sname varchar(20),
+    address varchar(40),
+    PRIMARY key (sid)
+)
+
+create TABLE parts(
+  	pid int,
+    pname varchar(20),
+    color varchar(40),
+    PRIMARY key (pid)
+)
+
+create TABLE catalog(
+  	sid int,
+  	pid int,
+    cost REAL,
+    FOREIGN key (sid) references suppliers(sid),
+    FOREIGN key (pid) references parts(pid)
+)
+
+INSERT into suppliers values(001, 'EDISON', 'HYDERABAD');
+INSERT into suppliers values(002, 'STERLING', 'BANGALORE');
+INSERT into suppliers values(003, 'ABANTI', 'MUMBAI');
+INSERT into suppliers values(004, 'LIBAS', 'CHENNAI');
+INSERT into suppliers values(005, 'RAJ', 'DELHI');
+
+INSERT into parts values(991, 'SHOES', 'BLACK');
+INSERT into parts values(992, 'JEANS', 'BLUE');
+INSERT into parts values(993, 'SOCKS', 'GREEN');
+INSERT into parts values(994, 'SHIRT', 'YELLOW');
+INSERT into parts values(995, 'HOODIE', 'WHITE');
+
+INSERT into catalog values(001, 993, 249);
+
+
+-- EDISON 
+-- STERLING 
+-- ABANTI 
+-- LIBAS 
+-- RAJ
