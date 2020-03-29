@@ -1,0 +1,35 @@
+create TABLE actor(
+    actid int,
+    actname VARCHAR,
+    gender VARCHAR,
+    PRIMARY KEY (actid)
+);
+
+create TABLE director(
+    dirid INT,
+    dirname VARCHAR,
+    phno INT,
+    PRIMARY key (dirid)
+);
+
+create TABLE movies(
+    movid int,
+    movtitle VARCHAR,
+    year int,
+    lang VARCHAR,
+    dirid INT,
+    FOREIGN key (dirid) REFERENCES director(dirid)
+);
+
+create TABLE movieCast(
+    actid INT,
+    movid int, 
+    role VARCHAR,
+    FOREIGN key (actid) REFERENCES actor(actid) 
+);
+
+create TABLE reting(
+    movid INT,
+    revstars INT,
+    FOREIGN key (movid) REFERENCES movies(movid)
+);

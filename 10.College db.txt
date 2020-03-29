@@ -1,0 +1,43 @@
+CREATE TABLE student(
+    usn VARCHAR,
+    sname VARCHAR,
+    address VARCHAR,
+    phone int,
+    gender VARCHAR,
+    PRIMARY key (usn)
+);
+
+CREATE TABLE semsec(
+    ssid int,
+    sem int,
+    sec CHAR,
+    primary key (ssid)
+);
+
+create TABLE class(
+    usn VARCHAR,
+    ssid int,
+    FOREIGN key (usn) REFERENCES student(usn),
+    FOREIGN key (ssid) REFERENCES semsec(ssid),
+);
+
+create TABLE subj(
+    subcode VARCHAR,
+    title VARCHAR,
+    sem int,
+    credits int,
+    FOREIGN key (sem) REFERENCES semsec(sem)
+);
+
+create TABLE iamarks(
+    usn VARCHAR,
+    subcode VARCHAR,
+    ssid int,
+    test1 int,
+    test2 int,
+    test3 int, 
+    finalia int,
+    FOREIGN key (usn) REFERENCES student(usn),
+    FOREIGN key (subcode) REFERENCES subj(subcode),
+    FOREIGN key (ssid) REFERENCES semsec(ssid),
+)
