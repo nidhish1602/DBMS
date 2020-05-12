@@ -36,15 +36,15 @@ primary key (loanNo),
 foreign key (bname) references branch(bname)    
 );
 
-insert into branch values(
-'SBI_Chamrajpet','Bangalore',50000),
+insert into branch values
+('SBI_Chamrajpet','Bangalore',50000),
 ("SBI_ResidencyRoad","Bangalore",10000),
 ("SBI_ShivajiRoad","Bonbay",20000),
 ("SBI_ParliamentRoad","Delhi",10000),
 ("SBI_Jantarmantar","Delhi",20000);
 
-insert into accounts values(
-"SBI_Chamrajpet", 1, 2000),
+insert into accounts values
+("SBI_Chamrajpet", 1, 2000),
 ("SBI_ResidencyRoad", 2, 5000),
 ("SBI_ShivajiRoad", 3, 6000),
 ("SBI_ParliamentRoad", 4, 9000),
@@ -55,15 +55,15 @@ insert into accounts values(
 ("SBI_ResidencyRoad", 10, 5000),
 ("SBI_Jantarmantar", 11, 2000);
 
-insert into customer values(
-"Avinash","Bull Temple Road","Bangalore"),
+insert into customer values
+("Avinash","Bull Temple Road","Bangalore"),
 ("Dinesh","Bannergatta Road","Bangalore"),
 ("Mohan","National College Road","Bangalore"),
 ("Nikil","Akbar Road","Delhi"),
 ("Ravi","Prithviraj Road","Delhi");
 
-insert into depositor values(
-"Avinash",1),("Dinesh",2),
+insert into depositor values
+("Avinash",1),("Dinesh",2),
 ("Nikil",4),
 ("Ravi",5),
 ("Avinash",8),
@@ -71,8 +71,8 @@ insert into depositor values(
 ("Dinesh",10),
 ("Nikil",11);
 
-insert into loan values(
-1,"SBI_Chamrajpet",1000),
+insert into loan values
+(1,"SBI_Chamrajpet",1000),
 (2,"SBI_ResidencyRoad",2000),
 (3,"SBI_ShivajiRoad",3000),
 (4,"SBI_ParliamentRoad",4000),
