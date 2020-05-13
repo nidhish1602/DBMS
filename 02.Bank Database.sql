@@ -83,3 +83,16 @@ select * from loan;
 select * from borrower;
 select * from customer;
 select * from accounts;
+
+-- 1
+select c.cname
+from customer c
+where EXISTS (
+	SELECT d.cname, COUNT(d.cname) 
+    from accounts a, depositor d
+	where a.accno = d.accno and d.cname = c.cname and a.bname = 'SBI_ResidencyRoad'
+    GROUP by d.cname
+    HAVING COUNT(c.cname) > 1
+);
+--2
+
